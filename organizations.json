@@ -1,0 +1,12 @@
+{
+  "organizations": [
+    {
+      "id": 1,
+      "name": "acme",
+      "owner": {"id": 1, "email": "karen@bla.com"},
+      "users":{"id":2, "email":"chad@bla.com", "role":"admin", "environments":{"id": 1, "name": "blue"} }
+    }
+  ]
+}
+  
+

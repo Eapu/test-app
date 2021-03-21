@@ -1,6 +1,13 @@
 import Link from 'next/link'
-
+import { Auth } from "aws-amplify";
 const Navigation = () => {
+    const signOutHandler = async () => {
+    try {
+        await Auth.signOut();
+    } catch (err) {
+      console.log(err);
+    }
+    };
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link href="/">
@@ -12,7 +19,7 @@ const Navigation = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link href="/organizations">
+                        <Link href="/dash_organizations">
                             <a className="nav-link">organizations</a>
                         </Link>
                     </li>
@@ -21,6 +28,15 @@ const Navigation = () => {
                             <a className="nav-link">services</a>
                         </Link>
                     </li>
+                </ul>
+                <ul className="navbar-nav ml-auto">
+                    <button
+                    className="btn btn-danger"
+                    type="button"
+                    onClick={signOutHandler}
+                    >
+                    Sign Out
+                    </button>
                 </ul>
             </div>
         </nav>

@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router'
 import fetch from 'isomorphic-fetch'
 import Container from '../../../components/Container'
-const UserProfile = ({user}) => {
 
+const UserProfile = ({user}) => {
   const router = useRouter();
   const {id} = router.query;
   return (
@@ -19,7 +19,6 @@ const UserProfile = ({user}) => {
             </h3>
             <p>{user.email}</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -28,8 +27,8 @@ const UserProfile = ({user}) => {
   );
 }
 UserProfile.getInitialProps = async (ctx) => {
-  //console.log(ctx.query.id)
-  const res = await fetch(`https://reqres.in/api/users/${ctx.query.id}`)
+  console.log(ctx.query.id)
+  const res = await fetch(`https://reqres.in/api/users/`)
   const resJSON = await res.json();
   //console.log(resJSON)
   return {user:resJSON.data}
