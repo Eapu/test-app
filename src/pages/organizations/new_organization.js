@@ -107,15 +107,7 @@ const OrganizationForm = (props) => {
 export default OrganizationForm;
 
 
-OrganizationForm.getInitialProps = async (ctx) => {
-  const res = await fetch(" https://reqres.in/api/users");
-  const resJSON = await res.json();
-  
-  return {
-    users: resJSON.data
 
-  };
-};
 
 
 /**
